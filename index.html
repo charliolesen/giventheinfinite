@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="controls no-print">
+    <h1>Flashcard Builder</h1>
+    <div class="button-group">
+      <button onclick="loadCards()">Load Cards</button>
+      <button onclick="window.print()">Save as PDF</button>
+      <button onclick="togglePreview()">Toggle Preview Mode</button>
+      <button onclick="toggleControls()" style="background: #607D8B;">Toggle Card Controls</button>
+      <button onclick="exportAdjustments()" style="background: #FF9800;">Export Adjustments</button>
+      <button onclick="document.getElementById('importFile').click()" style="background: #9C27B0;">Import JSON</button>
+      <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importJSON(event)">
+    </div>
+    <div class="info">
+      <p>Cards loaded: <span id="cardCount">0</span></p>
+      <p>Ready to print? Click "Save as PDF" or use Ctrl+P / Cmd+P</p>
+    </div>
+  </div>
+
+  <div id="cards-container" class="cards-container"></div>
+
+  <script src="generator.js"></script>
+</body>
+</html>
