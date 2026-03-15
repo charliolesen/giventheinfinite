@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+/* Controls (hidden in print) */
+.controls {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls h1 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+.info {
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  color: #666;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+#cardCount {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Individual Card */
+.card {
+  width: 297mm;
+  height: 210mm;
+  background: white;
+  padding: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  page-break-after: always;
+  page-break-inside: avoid;
+  position: relative;
+  overflow: hidden;
+}
+
+/* White bar at top of card */
+.card-white-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  z-index: 1;
+}
+
+/* Tab in white bar */
+.card-tab {
+  position: absolute;
+  top: -2px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Top half - solid color block */
+.card-top-block {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: calc(50% - 50px);
+  z-index: 0;
+}
+
+/* Card content container */
+.card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Upper right text - large print */
+.card-title {
+  position: absolute;
+  top: 25%;
+  left: 6.75in;
+  right: 0.5in;
+  transform: translateY(-50%);
+  font-size: 336px;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Middle left image */
+.card-image {
+  position: absolute;
+  top: 50%;
+  left: 0.75in;
+  transform: translateY(-50%);
+  width: auto;
+  height: 5in;
+  object-fit: contain;
+}
+
+/* Graphemes section at bottom below icon */
+.graphemes-section {
+  position: absolute;
+  bottom: 0.5in;
+  left: 0.75in;
+  width: 5in;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.grapheme-box {
+  padding: 0.04in 0.1in;
+  border-radius: 0.06in;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  white-space: nowrap;
+}
+
+.grapheme-box span {
+  font-weight: 700;
+}
+
+/* Words section in bottom half */
+.words-section {
+  position: absolute;
+  top: calc(50% + 30px);
+  left: calc(5.5in + 100px);
+  right: 0.5in;
+  bottom: 0.5in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25in;
+}
+
+.word-icon {
+  width: 0.8in;
+  height: 0.8in;
+  object-fit: contain;
+}
+
+.word-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Optional: Bottom content area */
+.card-body {
+  position: absolute;
+  bottom: 1in;
+  left: 0.75in;
+  right: 0.75in;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0.5in;
+  left: 0.75in;
+  right: 0.75in;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+}
+
+/* Card Controls */
+.card-controls {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.control-group {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.control-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin-right: 5px;
+}
+
+.card-controls button {
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #2196F3;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-controls button:hover {
+  background: #1976D2;
+}
+
+/* Hide card controls toggle */
+body.hide-controls .card-controls {
+  display: none !important;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  .no-print,
+  .controls,
+  .card-controls,
+  .debug-rect {
+    display: none !important;
+  }
+
+  .cards-container {
+    gap: 0;
+    display: block;
+  }
+
+  .card {
+    box-shadow: none;
+    margin: 0;
+    width: 297mm;
+    height: 210mm;
+  }
+
+  .card-top-block,
+  .card-tab,
+  .grapheme-box {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .word-text span,
+  .grapheme-box span {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+}
+
+/* Preview Mode Toggle */
+body.preview-mode .cards-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+body.preview-mode .card {
+  width: 400px;
+  height: 520px;
+  transform: scale(0.47);
+  transform-origin: top left;
+  margin-right: -200px;
+  margin-bottom: -240px;
+}
