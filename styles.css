@@ -39,12 +39,14 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 1s ease;
 }
 
 .bg-layer.loaded {
+  visibility: visible;
   opacity: 1;
+  transition: opacity 1s ease;
 }
 
 .bg-bottom {
@@ -375,7 +377,7 @@ a:hover {
   overflow-y: auto;
   height: 100%;
   scrollbar-width: none;
-  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.85) 10%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.3) 80%, transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.85) 5%, rgba(0, 0, 0, 0.85) 85%, rgba(0, 0, 0, 0.3) 95%, transparent);
   border-right: 1px solid;
   border-image: linear-gradient(to bottom,
     transparent 5%,
