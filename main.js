@@ -398,7 +398,8 @@ function escapeAttr(str) {
     // Wait two frames for browser to composite before revealing
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        loaded.forEach(({ el }) => el.classList.add('loaded'));
+        // Reveal all bg layers including canvases
+        document.querySelectorAll('.bg-layer').forEach(el => el.classList.add('loaded'));
         initPariah();
         initFireflies();
       });
