@@ -369,23 +369,31 @@ function escapeAttr(str) {
     { selector: '.bg-top',    src: 'images/bgs/grievelayers/staticgrievetop.png' },
   ];
 
+  // Preload all images into memory first, don't touch the DOM yet
+  const loaded = [];
   const promises = bgAssets.map(asset => {
     const el = document.querySelector(asset.selector);
     if (!el) return Promise.resolve();
     return new Promise(resolve => {
       const img = new Image();
       img.onload = () => {
-        el.style.backgroundImage = `url('${asset.src}')`;
-        el.classList.add('loaded');
+        loaded.push({ el, src: asset.src });
         resolve();
       };
-      img.onerror = () => resolve(); // don't block on missing assets
+      img.onerror = () => resolve();
       img.src = asset.src;
     });
   });
 
   Promise.all(promises).then(() => {
-    // All backgrounds loaded — start canvas effects
+    // Apply all backgrounds at once, then reveal together
+    loaded.forEach(({ el, src }) => {
+      el.style.backgroundImage = `url('${src}')`;
+    });
+    // Force a layout so the images are painted before the fade
+    document.body.offsetHeight;
+    loaded.forEach(({ el }) => el.classList.add('loaded'));
+    // Start canvas effects
     initPariah();
     initFireflies();
   });
