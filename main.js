@@ -361,8 +361,38 @@ function escapeAttr(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+// ── Background asset lazy loader ──
+(function lazyLoadBGs() {
+  const bgAssets = [
+    { selector: '.bg-bottom', src: 'images/bgs/grievelayers/staticgrievebottom.png' },
+    { selector: '.bg-sky',    src: 'images/bgs/grievelayers/seamlessskytrans.png' },
+    { selector: '.bg-top',    src: 'images/bgs/grievelayers/staticgrievetop.png' },
+  ];
+
+  const promises = bgAssets.map(asset => {
+    const el = document.querySelector(asset.selector);
+    if (!el) return Promise.resolve();
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        el.style.backgroundImage = `url('${asset.src}')`;
+        el.classList.add('loaded');
+        resolve();
+      };
+      img.onerror = () => resolve(); // don't block on missing assets
+      img.src = asset.src;
+    });
+  });
+
+  Promise.all(promises).then(() => {
+    // All backgrounds loaded — start canvas effects
+    initPariah();
+    initFireflies();
+  });
+})();
+
 // ── Pariah apparition (homepage only) ──
-(function initPariah() {
+function initPariah() {
   const canvas = document.getElementById('pariah-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -746,10 +776,10 @@ function escapeAttr(str) {
 
     requestAnimationFrame(draw);
   };
-})();
+}
 
 // ── Fireflies (homepage only) ──
-(function initFireflies() {
+function initFireflies() {
   const canvas = document.getElementById('fireflies');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -838,4 +868,4 @@ function escapeAttr(str) {
   }
 
   draw();
-})();
+}
