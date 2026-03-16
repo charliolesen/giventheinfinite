@@ -260,7 +260,7 @@ a:hover {
 .toc-toggle {
   position: fixed;
   top: calc(57px + 0.75rem);
-  left: max(230px, calc(50vw - 375px));
+  left: max(180px, calc(50vw - 375px));
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -296,8 +296,8 @@ a:hover {
 }
 
 .toc {
-  width: max(230px, calc(50vw - 375px));
-  min-width: 230px;
+  width: calc(50vw - 375px);
+  min-width: 180px;
   padding: 2rem 1.5rem;
   background: rgba(0, 0, 0, 0.88);
   border-right: 1px solid var(--border);
@@ -597,6 +597,22 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* ── Mid-width: TOC overlays as fixed panel ── */
+@media (max-width: 1110px) {
+  .toc {
+    width: 230px;
+    min-width: unset;
+  }
+
+  .toc-toggle {
+    left: 230px;
+  }
+
+  .toc.hidden ~ .toc-toggle {
+    left: 0;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   /* Remove the dark gradient overlay on mobile */
@@ -654,12 +670,34 @@ a:hover {
     flex-direction: column;
   }
 
+  .font-size-controls {
+    position: fixed;
+    top: calc(var(--nav-h, 90px) + 0.35rem);
+    right: 0.5rem;
+    z-index: 12;
+    padding: 0;
+  }
+
+  .toc-toggle {
+    left: 0;
+    top: calc(var(--nav-h, 90px) + 0.5rem);
+    border-left: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 0.3rem 0.4rem;
+    font-size: 10px;
+  }
+
+  .toc:not(.hidden) ~ .toc-toggle {
+    left: 230px;
+    border-left: none;
+  }
+
   .toc {
     width: 230px;
     min-width: unset;
     position: fixed;
-    top: 57px;
-    height: calc(100vh - 57px);
+    top: var(--nav-h, 90px);
+    height: calc(100vh - var(--nav-h, 90px));
     border-right: 1px solid var(--border);
     border-bottom: none;
     padding: 1.5rem;
@@ -667,7 +705,7 @@ a:hover {
 
   .reader {
     padding: 2rem 1.5rem;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.93);
     border-right: none;
     border-image: none;
   }

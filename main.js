@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     link.classList.toggle('active', href === page);
   });
 
+  // Measure nav height for mobile TOC positioning
+  const siteNav = document.querySelector('.site-nav');
+  if (siteNav) {
+    const setNavH = () => document.documentElement.style.setProperty('--nav-h', siteNav.offsetHeight + 'px');
+    setNavH();
+    window.addEventListener('resize', setNavH);
+  }
+
   // Read page: build TOC and load chapters
   const tocList = document.getElementById('toc-list');
   const chapterContent = document.getElementById('chapter-content');
@@ -15,7 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // TOC toggle
   const tocToggle = document.getElementById('toc-toggle');
   const tocPanel = document.getElementById('toc-panel');
+  const TOC_BREAKPOINT = 1110;
   if (tocToggle && tocPanel) {
+    // Auto-collapse on narrow viewports
+    if (window.innerWidth <= TOC_BREAKPOINT) {
+      tocPanel.classList.add('hidden');
+    }
     tocToggle.addEventListener('click', () => {
       tocPanel.classList.toggle('hidden');
     });
