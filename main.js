@@ -369,33 +369,36 @@ function escapeAttr(str) {
     { selector: '.bg-top',    src: 'images/bgs/grievelayers/staticgrievetop.png' },
   ];
 
-  // Fully decode all images before touching the DOM
+  // Load then fully decode all images before touching the DOM
   const loaded = [];
   const promises = bgAssets.map(asset => {
     const el = document.querySelector(asset.selector);
     if (!el) return Promise.resolve();
     return new Promise(resolve => {
       const img = new Image();
+      img.onload = () => {
+        const finish = () => { loaded.push({ el, src: asset.src }); resolve(); };
+        // decode() after load ensures fully rasterized — no progressive line-by-line
+        if (img.decode) {
+          img.decode().then(finish).catch(finish);
+        } else {
+          finish();
+        }
+      };
+      img.onerror = () => resolve();
       img.src = asset.src;
-      // decode() ensures the image is fully decoded in memory — no progressive rendering
-      img.decode().then(() => {
-        loaded.push({ el, src: asset.src, img });
-        resolve();
-      }).catch(() => resolve());
     });
   });
 
   Promise.all(promises).then(() => {
-    // All images fully decoded — apply backgrounds while still hidden (visibility:hidden)
+    // Apply backgrounds while still hidden (visibility:hidden in CSS)
     loaded.forEach(({ el, src }) => {
       el.style.backgroundImage = `url('${src}')`;
     });
-    // Wait one frame for the browser to composite the backgrounds while hidden
+    // Wait two frames for browser to composite before revealing
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        // Now reveal all at once
         loaded.forEach(({ el }) => el.classList.add('loaded'));
-        // Start canvas effects
         initPariah();
         initFireflies();
       });
