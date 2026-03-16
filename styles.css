@@ -260,7 +260,7 @@ a:hover {
 .toc-toggle {
   position: fixed;
   top: calc(57px + 0.75rem);
-  left: 230px;
+  left: max(230px, calc(50vw - 375px));
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -296,7 +296,7 @@ a:hover {
 }
 
 .toc {
-  width: 230px;
+  width: max(230px, calc(50vw - 375px));
   min-width: 230px;
   padding: 2rem 1.5rem;
   background: rgba(0, 0, 0, 0.88);
