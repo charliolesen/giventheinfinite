@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept Art — Given the Infinite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-layer bg-bottom"></div>
+  <div class="bg-layer bg-sky"></div>
+  <div class="bg-layer bg-top"></div>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">GIVEN THE INFINITE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="read.html">Read</a></li>
+      <li><a href="world.html">World</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-read">
+    <aside class="toc" id="gallery-toc">
+      <h2>Concept Art</h2>
+      <ul id="gallery-toc-list"></ul>
+    </aside>
+    <button class="toc-toggle" id="gallery-toc-toggle" aria-label="Toggle categories"><span class="toc-chevron"></span></button>
+
+    <section class="reader gallery-reader" id="gallery-content">
+      <p class="reader-placeholder">Select a category to browse.</p>
+    </section>
+  </main>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&lsaquo;</button>
+    <button class="lightbox-next" aria-label="Next">&rsaquo;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Given the Infinite</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

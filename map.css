@@ -1,0 +1,350 @@
+/* ── World Map ── */
+#world-map {
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #08080c;
+}
+
+/* Override Leaflet's default styles for dark theme */
+.leaflet-container {
+  background: #08080c;
+  font-family: 'EB Garamond', 'Georgia', serif;
+}
+
+/* Zoom controls */
+.leaflet-control-zoom {
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(0, 0, 0, 0.85) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border) !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 16px !important;
+  transition: color 0.2s, background 0.2s;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(30, 30, 40, 0.95) !important;
+  color: var(--text) !important;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: var(--text-muted) !important;
+  font-size: 0.65rem !important;
+  font-family: var(--font-ui) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--accent-dim) !important;
+}
+
+/* ── Region polygon styling ── */
+.region-polygon {
+  transition: fill-opacity 0.2s, stroke-width 0.2s;
+}
+
+/* ── Map marker icons ── */
+.map-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(167, 139, 250, 0.6);
+  background: rgba(14, 14, 18, 0.85);
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.3), inset 0 0 4px rgba(167, 139, 250, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.map-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 16px rgba(167, 139, 250, 0.5), inset 0 0 6px rgba(167, 139, 250, 0.25);
+}
+
+.map-marker-capital {
+  width: 16px;
+  height: 16px;
+  border-color: rgba(200, 180, 100, 0.8);
+  box-shadow: 0 0 10px rgba(200, 180, 100, 0.4), inset 0 0 4px rgba(200, 180, 100, 0.2);
+}
+
+.map-marker-capital:hover {
+  box-shadow: 0 0 18px rgba(200, 180, 100, 0.6), inset 0 0 6px rgba(200, 180, 100, 0.3);
+}
+
+.map-marker-city {
+  width: 12px;
+  height: 12px;
+}
+
+.map-marker-town {
+  width: 8px;
+  height: 8px;
+  border-width: 1.5px;
+}
+
+.map-marker-landmark {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border-color: rgba(120, 200, 160, 0.6);
+  box-shadow: 0 0 8px rgba(120, 200, 160, 0.3);
+}
+
+/* ── Map labels ── */
+.map-label {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  color: var(--text);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.04em;
+}
+
+.map-label-region {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(212, 212, 216, 0.6);
+  font-family: var(--font-ui);
+  font-size: 13px;
+}
+
+.map-label-capital {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(200, 180, 100, 0.9);
+}
+
+.map-label-city {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.map-label-town {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.map-label-landmark {
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(120, 200, 160, 0.8);
+}
+
+/* ── Leaflet popups ── */
+.leaflet-popup-content-wrapper {
+  background: rgba(14, 14, 18, 0.95) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  color: var(--text) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(14, 14, 18, 0.95) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+.leaflet-popup-content {
+  font-family: 'EB Garamond', 'Georgia', serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin: 12px 16px !important;
+}
+
+.leaflet-popup-content h3 {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: 0.04em;
+}
+
+.leaflet-popup-content .popup-type {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.leaflet-popup-content .popup-lore {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+  font-size: 20px !important;
+  padding: 4px 8px !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: var(--text) !important;
+}
+
+/* ── Info panel (slide-in sidebar) ── */
+.info-panel {
+  position: fixed;
+  top: 57px;
+  right: 0;
+  width: 340px;
+  height: calc(100vh - 57px);
+  background: rgba(10, 10, 14, 0.95);
+  border-left: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  scrollbar-width: none;
+}
+
+.info-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.info-panel.open {
+  transform: translateX(0);
+}
+
+.info-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.info-close:hover {
+  color: var(--text);
+}
+
+.info-title {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.info-type {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-dim);
+  margin-bottom: 1.25rem;
+}
+
+.info-lore {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.info-lore p {
+  margin-bottom: 1rem;
+}
+
+/* ── Compass rose ── */
+.compass-rose {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 500;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.compass-rose svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* ── Map breadcrumb (for sub-maps) ── */
+.map-breadcrumb {
+  position: fixed;
+  top: calc(57px + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+}
+
+.map-breadcrumb.visible {
+  display: flex;
+}
+
+.map-breadcrumb a {
+  color: var(--accent-dim);
+  transition: color 0.2s;
+}
+
+.map-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.map-breadcrumb span {
+  color: var(--text-muted);
+}
+
+.map-breadcrumb .bc-current {
+  color: var(--text);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  #world-map {
+    top: auto;
+    position: relative;
+    height: calc(100vh - 90px);
+  }
+
+  .info-panel {
+    width: 100%;
+    top: 90px;
+    height: calc(100vh - 90px);
+  }
+
+  .compass-rose {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .compass-rose svg {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map — Given the Infinite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="map.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">GIVEN THE INFINITE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="read.html">Read</a></li>
+      <li><a href="world.html">World</a></li>
+    </ul>
+  </nav>
+
+  <div id="world-map"></div>
+
+  <div id="info-panel" class="info-panel">
+    <button class="info-close" aria-label="Close">&times;</button>
+    <h2 class="info-title"></h2>
+    <p class="info-type"></p>
+    <div class="info-lore"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

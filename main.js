@@ -54,6 +54,52 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('scroll', updateProgress);
     }
   }
+
+  // ── Glitch swap effect ──
+  document.querySelectorAll('.glitch-swap[data-alt]').forEach(el => {
+    const CHANCE = 1 / 6; // ~16.7% — 1-in-6 chance
+    if (Math.random() > CHANCE) return;
+
+    const original = el.innerHTML;
+    const alt = el.dataset.alt;
+    const GLITCH_DUR = 300;
+
+    // Start showing the alt text
+    el.innerHTML = alt;
+
+    // After 2s of being visible on screen, glitch into the original
+    let visibleTime = 0;
+    let lastFrame = null;
+    let triggered = false;
+
+    function tick(timestamp) {
+      if (triggered) return;
+
+      const rect = el.getBoundingClientRect();
+      const onScreen = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+
+      if (onScreen) {
+        if (lastFrame) visibleTime += timestamp - lastFrame;
+        lastFrame = timestamp;
+      } else {
+        lastFrame = null;
+      }
+
+      if (visibleTime >= 2000) {
+        triggered = true;
+        el.classList.add('glitching');
+        setTimeout(() => {
+          el.innerHTML = original;
+          el.classList.remove('glitching');
+        }, GLITCH_DUR);
+        return;
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  });
 });
 
 async function initReader(tocList, chapterContent) {
@@ -69,15 +115,20 @@ async function initReader(tocList, chapterContent) {
   (data.chapters || []).forEach(ch => { metaByNumber[ch.number] = ch; });
   const partConfig = data.parts || {};
 
-  // Auto-discover chapters by probing GTIchap1.docx, GTIchap2.docx, ... until 404
-  // For chapters without metadata, extract name from the docx raw text
+  // Auto-discover chapters by probing GTIchap1.docx, GTIchap2.docx, ...
+  // Probe up to the max chapter number defined in part ranges (or at least 60)
+  let maxProbe = 60;
+  for (const cfg of Object.values(partConfig)) {
+    if (cfg.range) maxProbe = Math.max(maxProbe, cfg.range[1]);
+  }
+
   const chapters = [];
-  for (let n = 1; ; n++) {
+  for (let n = 1; n <= maxProbe; n++) {
     const file = `GTIchap${n}.docx`;
     try {
       const probe = await fetch('chapters/' + file, { method: 'HEAD' });
-      if (!probe.ok) break;
-    } catch { break; }
+      if (!probe.ok) continue;
+    } catch { continue; }
 
     const meta = metaByNumber[n] || {};
     let name = meta.name || '';
@@ -278,6 +329,9 @@ async function loadChapter(chapter, container, chapters) {
 
     container.innerHTML = header + '<div class="chapter-body">' + temp.innerHTML + '</div>';
 
+    // CYOA: add interactive choice links for choose-your-own-adventure chapters
+    processCYOA(container, chapters);
+
     // Insert font-size controls at top of chapter
     initFontSizeControls(container);
 
@@ -372,6 +426,86 @@ function escapeHtml(str) {
 
 function escapeAttr(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+// ── Choose-Your-Own-Adventure interactive links ──
+function processCYOA(container, chapters) {
+  const body = container.querySelector('.chapter-body');
+  if (!body) return;
+
+  const allEls = [...body.querySelectorAll('p')];
+  const choicePattern = /^([A-Z])\)\s/;
+
+  // Auto-detect: only activate if there are enough letter+) patterns
+  const matchingEls = allEls.filter(el => choicePattern.test(el.textContent.trim()));
+  if (matchingEls.length < 5) return;
+
+  // Group by letter
+  const byLetter = {};
+  matchingEls.forEach(el => {
+    const letter = el.textContent.trim().match(choicePattern)[1];
+    if (!byLetter[letter]) byLetter[letter] = [];
+    byLetter[letter].push(el);
+  });
+
+  // For each letter: longest paragraph = content section (anchor), rest = choice links
+  for (const [letter, els] of Object.entries(byLetter)) {
+    let longest = els[0];
+    els.forEach(el => {
+      if (el.textContent.length > longest.textContent.length) longest = el;
+    });
+
+    longest.id = `choice-${letter}`;
+    longest.classList.add('cyoa-anchor');
+    // Restore the large section-letter formatting lost in docx→HTML conversion
+    // Walk to the first text node (works regardless of mammoth's <em>/<strong> wrapping)
+    {
+      const walker = document.createTreeWalker(longest, NodeFilter.SHOW_TEXT);
+      const textNode = walker.nextNode();
+      if (textNode) {
+        const m = textNode.textContent.match(/^([A-Z])\)\s*/);
+        if (m) {
+          const span = document.createElement('span');
+          span.className = 'cyoa-section-letter';
+          span.textContent = m[1] + ')';
+          const rest = document.createTextNode(' ' + textNode.textContent.slice(m[0].length));
+          textNode.parentNode.replaceChild(rest, textNode);
+          rest.parentNode.insertBefore(span, rest);
+        }
+      }
+    }
+
+    els.forEach(el => {
+      if (el === longest) return;
+      el.classList.add('cyoa-choice');
+      el.addEventListener('click', () => {
+        const target = document.getElementById(`choice-${letter}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.classList.add('cyoa-highlight');
+          setTimeout(() => target.classList.remove('cyoa-highlight'), 1500);
+        }
+      });
+    });
+  }
+
+  // "GO TO CHAPTER XX" links
+  allEls.forEach(el => {
+    const match = el.textContent.trim().match(/GO TO CHAPTER (\d+)/i);
+    if (!match) return;
+    const chapNum = parseInt(match[1]);
+    el.classList.add('cyoa-goto');
+    el.addEventListener('click', () => {
+      const ch = chapters.find(c => c.number === chapNum);
+      if (ch) {
+        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('.toc-link').forEach(l => {
+          if (l.querySelector('strong')?.textContent === String(chapNum)) l.classList.add('active');
+        });
+        loadChapter(ch, container, chapters);
+      }
+    });
+  });
 }
 
 // ── Background asset lazy loader ──
