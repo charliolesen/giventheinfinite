@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Glitch swap effect ──
   document.querySelectorAll('.glitch-swap[data-alt]').forEach(el => {
-    const CHANCE = 1 / 6; // ~16.7% — 1-in-6 chance
+    const CHANCE = el.dataset.chance !== undefined ? parseFloat(el.dataset.chance) : 1/20;
     if (Math.random() > CHANCE) return;
 
     const original = el.innerHTML;
@@ -85,13 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
         lastFrame = null;
       }
 
-      if (visibleTime >= 2000) {
+      if (visibleTime >= 1000) {
         triggered = true;
         el.classList.add('glitching');
+        setTimeout(() => { el.innerHTML = original; }, 150);
+        setTimeout(() => { el.innerHTML = alt; }, 300);
+        setTimeout(() => { el.innerHTML = original; }, 450);
+        setTimeout(() => { el.innerHTML = alt; }, 500);
         setTimeout(() => {
           el.innerHTML = original;
           el.classList.remove('glitching');
-        }, GLITCH_DUR);
+        }, GLITCH_DUR + 350);
         return;
       }
 
