@@ -44,13 +44,13 @@
           src: 'images/concept/characters/depor_glory.png',
           title: 'Gloria Leigh',
           subtitle: "Northern Dawn Chapter Leader | Anolethic",
-          desc: "As one of the two commanders of New Dawn's northern chapter, Glory operates rebel groups in Ballrith and Grieve, provinces bordering Menyantis. She fell into rebellion after her father was taken into custody and subsequently executed in Astrum under the orders of King Lucien Lor'End."
+          desc: "As one of the two commanders of New Dawn's northern chapter, Glory operates rebel groups in Ballrith and Grieve, provinces bordering Menyantis. She fell into rebellion after her father was taken into custody and subsequently executed in Astrum under the orders of King Lor'End Lucien."
         },
           {
           src: 'images/concept/characters/depor_rigel.png',
           title: "Rigel Lor'End",
           subtitle: "Crown Judge Superior | Anolethic",
-          desc: "The son of the late King Lucien Lor'End, Rigel was, without explanation, barred from succession by his father. At the age of eleven, he was to hear in the Crown Will that a poet named Ayen Saiyous had been chosen to ascend in his place, breaking a near two-hundred year line of royal blood. He serves now as Judge Superior to the capital's criminals."
+          desc: "The son of the late King Lor'End Lucien, Rigel was, without explanation, barred from succession by his father. At the age of eleven, he was to hear in the Crown Will that a poet named Ayen Saiyous had been chosen to ascend in his place, breaking a near two-hundred year line of royal blood. He serves now as Judge Superior to the capital's criminals."
         },
       ]
     },
