@@ -241,15 +241,19 @@ async function initReader(tocList, chapterContent) {
     tocList.appendChild(partLi);
   });
 
-  // Auto-load first chapter
-  if (firstLink) {
-    firstLink.link.classList.add('active');
-    loadChapter(firstLink.chapter, chapterContent, chapters);
-  }
+  // No auto-load — wait for user to select a chapter
 }
 
 async function loadChapter(chapter, container, chapters) {
-  container.innerHTML = '<p class="reader-placeholder">Loading...</p>';
+  const tipHtml = chapter.tip
+    ? `<p class="reader-loading-tip">${escapeHtml(chapter.tip)}</p>`
+    : '';
+  container.innerHTML = `
+    <div class="reader-loading">
+      <p class="reader-loading-label">Loading Chapter ${escapeHtml(String(chapter.number))} &mdash; ${escapeHtml(chapter.name)}</p>
+      ${tipHtml}
+      <p class="reader-loading-dots loading-dots">Loading</p>
+    </div>`;
 
   try {
     const res = await fetch('chapters/' + chapter.file);

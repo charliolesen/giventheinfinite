@@ -1004,7 +1004,7 @@
       3712,
       7589
     ],
-    "anchor": "right",
+    "anchor": "bottom",
     "status": "",
     "lore": ""
   },
@@ -1060,10 +1060,10 @@
     "type": "region",
     "kingdom": "Anoleth",
     "leaflet": [
-      2800,
+      2700,
       6077
     ],
-    "anchor": "right",
+    "anchor": "bottom",
     "status": "",
     "lore": "Made famous by the Poet Ahren Yinnema in his 'Pipits and Swifts of Rhineway Bay', a tongue-in-cheek collection of poems that have been theorised to contain sentiment that mocks or contradicts the monarchy and military of Anoleth. The area remains today as the training ground for Anoleth's Diamondguard Naval forces, a fleet of 9 ships that are crafted predominantly from wood with steel and eydt reinforcement. The bay has a warm climate, and the coast is home to a great number of birds both small and large.<br><br><i>I sit upon the sands and look across a crystal bay,<br>Then see the ebb and flow of diamonds cast their shadows grey, <br>Oh, shan't they bother other seas and scare not swifts away?<br>But s'pose they do, and impose on you, <br>Be it Klevettstead or Balliway, the horizons yet dismay.</i>"
   },
@@ -1107,7 +1107,7 @@
       2679,
       5147
     ],
-    "anchor": "right",
+    "anchor": "left",
     "status": "",
     "lore": ""
   },
@@ -1120,10 +1120,10 @@
       "PENAL COLONY"
     ],
     "leaflet": [
-      2805,
+      2705,
       6524
     ],
-    "anchor": "right",
+    "anchor": "top",
     "status": "",
     "lore": ""
   },
@@ -1147,7 +1147,7 @@
       2598,
       5412
     ],
-    "anchor": "right",
+    "anchor": "top",
     "status": "",
     "lore": ""
   },

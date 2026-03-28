@@ -339,7 +339,7 @@
     if (searchPanel.classList.contains('open')) searchInput.focus();
   });
 
-  var typeOrder = ['capital', 'city', 'town', 'landmark', 'mountain', 'lake', 'river', 'bridge', 'abandoned'];
+  var typeOrder = ['capital', 'city', 'town', 'landmark', 'mountain', 'lake', 'river', 'bridge', 'abandoned', 'sea', 'region'];
 
   function buildSearchList(filter) {
     var query = (filter || '').toLowerCase();

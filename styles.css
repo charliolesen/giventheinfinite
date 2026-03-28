@@ -636,6 +636,35 @@ a:hover {
   text-indent: 0;
 }
 
+.reader-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem 0;
+}
+
+.reader-loading-label {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-indent: 0;
+}
+
+.reader-loading-tip {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-indent: 0;
+}
+
+.reader-loading-dots {
+  color: var(--text-muted);
+  font-style: italic;
+  text-indent: 0;
+  margin-top: 0.5rem;
+}
+
 .loading-dots::after {
   content: '';
   animation: dots 1.2s steps(4, end) infinite;
