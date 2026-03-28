@@ -1,3 +1,6 @@
+// Preload the chapter logo so it's instant on chapter switches
+new Image().src = 'chapters/images/logos/romlogovec.svg';
+
 // Highlight active nav link based on current page
 document.addEventListener('DOMContentLoaded', () => {
   const page = location.pathname.split('/').pop() || 'index.html';
@@ -132,7 +135,7 @@ async function initReader(tocList, chapterContent) {
       number: ch.number,
       name: ch.name || `Chapter ${ch.number}`,
       tip: ch.tip || '',
-      image: ch.image || '',
+      image: 'image' in ch ? ch.image : 'chapters/images/logos/romlogovec.svg',
       file: `GTIchap${ch.number}.docx`
     };
   });
@@ -201,7 +204,7 @@ async function initReader(tocList, chapterContent) {
 
 async function loadChapter(chapter, container, chapters) {
   const imageHtml = chapter.image
-    ? `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(chapter.image)}" alt="" onload="this.classList.add('loaded')"></div>`
+    ? `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(chapter.image)}" alt=""></div>`
     : '';
   const tipHtml = chapter.tip
     ? `<p class="chapter-tip">${escapeHtml(chapter.tip)}</p>`

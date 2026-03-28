@@ -10,8 +10,8 @@
   },
   "chapters": [
     { "number": 1, "name": "Grieve", "tip": "Entering\u2026", "image": "chapters/images/logos/romlogovec.svg" },
-    { "number": 2, "name": "The Man with the Bug in His Arm", "tip": "Istuis - the high-tech hub of Eydtea - supplies the kingdoms with transportation and communication technologies, as well as military equipment." },
-    { "number": 3, "name": "The Silver Star", "tip": "Astrum is Anoleth's capital city, home to the Chrysalis - the oldest castle structure in the world, and seat of the King." },
-    { "number": 4, "name": "New Dawn", "tip": "The rebel group now known as New Dawn have warred with the Anolethic monarchy for close to a century and a half, inspired against the cruelty of the early kings of Anoleth." }
+    { "number": 2, "name": "The Man with the Bug in His Arm", "tip": "Istuis - the high-tech hub of Eydtea - supplies the kingdoms with transportation and communication technologies, as well as military equipment.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 3, "name": "The Silver Star", "tip": "Astrum is Anoleth's capital city, home to the Chrysalis - the oldest castle structure in the world, and seat of the King.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 4, "name": "New Dawn", "tip": "The rebel group now known as New Dawn have warred with the Anolethic monarchy for close to a century and a half, inspired against the cruelty of the early kings of Anoleth.", "image": "chapters/images/logos/romlogovec.svg" }
   ]
 }
