@@ -444,12 +444,18 @@ a:hover {
 .chapter-image-wrap {
   text-align: center;
   margin-bottom: 0.75rem;
+  min-height: 120px;
 }
 
 .chapter-image {
   display: inline-block;
   max-width: 120px;
   max-height: 120px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.chapter-image.loaded {
   opacity: 0.85;
 }
 
@@ -619,6 +625,15 @@ a:hover {
 .chapter-body {
   font-family: 'EB Garamond', 'Georgia', serif;
   font-size: 1.065rem;
+}
+
+.chapter-body-fadein {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.chapter-body-fadein.visible {
+  opacity: 1;
 }
 
 .chapter-body p {

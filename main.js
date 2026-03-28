@@ -132,7 +132,7 @@ async function initReader(tocList, chapterContent) {
       number: ch.number,
       name: ch.name || `Chapter ${ch.number}`,
       tip: ch.tip || '',
-      image: 'image' in ch ? ch.image : 'chapters/images/logos/romlogovec.svg',
+      image: ch.image || '',
       file: `GTIchap${ch.number}.docx`
     };
   });
@@ -201,7 +201,7 @@ async function initReader(tocList, chapterContent) {
 
 async function loadChapter(chapter, container, chapters) {
   const imageHtml = chapter.image
-    ? `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(chapter.image)}" alt=""></div>`
+    ? `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(chapter.image)}" alt="" onload="this.classList.add('loaded')"></div>`
     : '';
   const tipHtml = chapter.tip
     ? `<p class="chapter-tip">${escapeHtml(chapter.tip)}</p>`
@@ -289,9 +289,10 @@ async function loadChapter(chapter, container, chapters) {
     const placeholder = container.querySelector('.chapter-body-placeholder');
     if (placeholder) {
       const body = document.createElement('div');
-      body.className = 'chapter-body';
+      body.className = 'chapter-body chapter-body-fadein';
       body.innerHTML = temp.innerHTML;
       placeholder.replaceWith(body);
+      requestAnimationFrame(() => body.classList.add('visible'));
     }
 
     // CYOA: add interactive choice links for choose-your-own-adventure chapters
