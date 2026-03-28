@@ -1,0 +1,1210 @@
+[
+  {
+    "name": "MENYANTIS",
+    "type": "kingdom",
+    "kingdom": "",
+    "leaflet": [
+      6751,
+      3919
+    ],
+    "anchor": "right",
+    "status": "Ruled by Queen Pyxis (presumed dead)",
+    "lore": ""
+  },
+  {
+    "name": "ANOLETH",
+    "type": "kingdom",
+    "kingdom": "",
+    "leaflet": [
+      4605,
+      6113
+    ],
+    "anchor": "right",
+    "status": "Ruled by King Ayen Saiyous",
+    "lore": ""
+  },
+  {
+    "name": "ISTUIS",
+    "type": "kingdom",
+    "kingdom": "",
+    "leaflet": [
+      2274,
+      10678
+    ],
+    "anchor": "right",
+    "status": "Ruled by the Democratic Governmental Ministry of Istuis",
+    "lore": ""
+  },
+  {
+    "name": "JUAVELLE",
+    "type": "kingdom",
+    "kingdom": "",
+    "leaflet": [
+      1610,
+      3804
+    ],
+    "anchor": "right",
+    "status": "Ruled by Crown Prince Yeikh",
+    "lore": ""
+  },
+  {
+    "name": "MENASTIS",
+    "type": "region",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      5939,
+      4721
+    ],
+    "anchor": "right",
+    "status": "Southern Area of the Double Stars Territory",
+    "lore": ""
+  },
+  {
+    "name": "YANTAI",
+    "type": "region",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7491,
+      3337
+    ],
+    "anchor": "right",
+    "status": "Northern Area of the Double Stars Territory",
+    "lore": ""
+  },
+  {
+    "name": "FREYNE ISLES",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      6702,
+      8254
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BALLRITH",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5245,
+      8884
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BALLRITH'S HEAD",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "BALLRITH'S",
+      "HEAD"
+    ],
+    "leaflet": [
+      5910,
+      7743
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BAY OF BALLRITH",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "BAY OF",
+      "BALLRITH"
+    ],
+    "leaflet": [
+      6093,
+      8428
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "LARIAS",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4647,
+      8702
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "REDDALSHIRE",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4266,
+      6933
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "NORTHERN LETHO",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "NORTHERN",
+      "LETHO"
+    ],
+    "leaflet": [
+      4429,
+      4360
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ANNLIER",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3292,
+      7846
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "CAPITUS",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2501,
+      8981
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "CONCAIRE",
+    "type": "region",
+    "kingdom": "Istuis",
+    "leaflet": [
+      2500,
+      10831
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "FREDERICKSLAND",
+    "type": "region",
+    "kingdom": "Istuis",
+    "leaflet": [
+      1745,
+      10012
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ANTORD",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3229,
+      5084
+    ],
+    "anchor": "right",
+    "status": "Formerly Juavelle",
+    "lore": ""
+  },
+  {
+    "name": "ANBA",
+    "type": "region",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      1941,
+      4360
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PRESHAK",
+    "type": "region",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      2266,
+      3723
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PRESHAK MOUNTAIN",
+    "type": "mountain",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      2683,
+      3682
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MOUNT ARIADNE",
+    "type": "mountain",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      5320,
+      5830
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "VISHANTAL",
+    "type": "region",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      980,
+      4157
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "IMIZO",
+    "type": "region",
+    "kingdom": "Istuis",
+    "leaflet": [
+      1336,
+      11836
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "OSOA",
+    "type": "region",
+    "kingdom": "Istuis",
+    "leaflet": [
+      1898,
+      11626
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "YANZ",
+    "type": "region",
+    "kingdom": "Istuis",
+    "leaflet": [
+      3242,
+      11825
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "GRIEVE",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5729,
+      6830
+    ],
+    "anchor": "right",
+    "status": "Formerly Kasseia (Griv)",
+    "lore": ""
+  },
+  {
+    "name": "MONTENEGRO",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      7775,
+      6309
+    ],
+    "anchor": "right",
+    "status": "Formerly Menyantis",
+    "lore": ""
+  },
+  {
+    "name": "THE GODLESS LANDS",
+    "type": "region",
+    "kingdom": "Demilitarised",
+    "wrap": [
+      "THE GODLESS",
+      "LANDS"
+    ],
+    "leaflet": [
+      5255,
+      6303
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "Named as such for the constant bloodshed upon the land, all without any major intervention by the Gods nor their Holy representatives on Eydtea. Why this land must forever suffer is a mystery to all."
+  },
+  {
+    "name": "POLAR SEA",
+    "type": "sea",
+    "leaflet": [
+      9774,
+      3630
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "NORTH WILDER SEA",
+    "type": "sea",
+    "wrap": [
+      "NORTH",
+      "WILDER SEA"
+    ],
+    "leaflet": [
+      7990,
+      11121
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "SOUTH WILDER SEA",
+    "type": "sea",
+    "wrap": [
+      "SOUTH",
+      "WILDER SEA"
+    ],
+    "leaflet": [
+      2172,
+      1054
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "SOUTHERN POINT SEA",
+    "type": "sea",
+    "wrap": [
+      "SOUTHERN",
+      "POINT SEA"
+    ],
+    "leaflet": [
+      1503,
+      6500
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ASTRUM",
+    "type": "capital",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2634,
+      9570
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "CONCORDA",
+    "type": "capital",
+    "kingdom": "Istuis",
+    "leaflet": [
+      2662,
+      12086
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MENASHA",
+    "type": "capital",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      6441,
+      5717
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "Menasha is the seat of the Menakh representatives of the Double Stars Government, and home to Ditechnic's vast underground survival facilities that were constructed for the United States Government before the Fall.<br><br>It was here that secret engineering projects created the first Realmships, finally allowing modern Menyantis to approach parity with the strength and mobility of Anoleth, should their fragile peace come to an end. The conspiracy was made clear, however, when the Pariah warship was stolen from the di-space experimental arena, as well as a large number of her smaller accompanying realmships, by members of the Ebbing.<br><br> The commandeered ships were spotted within the year and reported as alien crafts. Istuistan investigations into the UFO events soon revealed, unequivocally, that Menyantis had been developing new technologies without informing relevant parties."
+  },
+  {
+    "name": "XUZHAN",
+    "type": "capital",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7584,
+      3638
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MADISON CITY",
+    "type": "town",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      5316,
+      3824
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "SHANGFEI",
+    "type": "town",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7069,
+      3636
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "TIANBEIDU",
+    "type": "city",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7639,
+      5877
+    ],
+    "anchor": "right",
+    "status": "UNKNOWN",
+    "lore": "The birthplace of E-Yuan Ditechnical, the only conglomerate of the Old Kings' era to survive the fall, TianBeiDu remains a city of elegance and wonder. Built into the icy mountains of Yantai east, the city was the first trading post for the citizens of The Steps, the two large settlements working together to increase one another's strengths. The city boasts many small rivers that branch from the TianJiang that make fresh water and fresh ice available all over the city, and despite the cold weather, well-insulated homes and hotels. The locals also enjoy a wide range of locally grown fruits, vegetables, and spices, and unique dishes such as slow-cooked numb pork, glass noodles with leek and egg, and their world-famous volcano buns. If you are ever traveling up in the colder part of the world, TianBeiDu is a must-stay during your journey."
+  },
+  {
+    "name": "KABATT",
+    "type": "city",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      2204,
+      4745
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PAELASTICE VALLEY",
+    "type": "town",
+    "kingdom": "Juavelle",
+    "wrap": [
+      "PAELASTICE",
+      "VALLEY"
+    ],
+    "leaflet": [
+      574,
+      4483
+    ],
+    "anchor": "left",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ESPRICH",
+    "type": "town",
+    "kingdom": "Istuis",
+    "leaflet": [
+      2758,
+      11470
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "Named for Alfred Esprich, this industrious city is now more closely associated with modern slavery than its former reputation as the heart of Istuistan production. This is the city where eydt glass is refined by longstanding professionals living and working in industrial buildings that make up the webbed network of the city. From centrodyne engines to blades and armour, anything that can be made of glass is made right here in Esprich."
+  },
+  {
+    "name": "PORT CONCORD",
+    "type": "town",
+    "kingdom": "Istuis",
+    "leaflet": [
+      1943,
+      9830
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "WELLSMOUTH",
+    "type": "city",
+    "kingdom": "Istuis",
+    "leaflet": [
+      2132,
+      11612
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "CHRYSALIS",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2740,
+      9665
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "THE STEPS",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      7583,
+      6775
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "FALLOW MOUNT",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4558,
+      8270
+    ],
+    "anchor": "bottom",
+    "status": "",
+    "lore": "Fallow Mount is most regarded for its quarries, from which the pioneer Brian Bething and his cohort once extracted countless building materials to improve the colony of his people, in an endeavour that was unendingly gruelling given the distance between the mountain and the town. He was killed by a remnant on the mountain, as, while he was strong, the sheer size of the creature and the rough terrain rendered him fatally outmatched. Some versions of the legend purport that Bething was attempting to train the creature in order that it may work with him in his excavations, and that his attempts failed because the creature was too violent and unintelligent. To this day, the final rock he ever hauled back to the town remains in the square. Its plaque reads: The Rock. In the year of six sixty eight, Brian Bething and his seven men haul enormous rocks from the mountains to the riverside to found a new homestead for the Redwick Tribe to carve into bricks. In the year of six seventy three, Brian Bething is killed by a vile Witness while excavating on Fallow Mount. This is the last rock he placed in the town, and thereafter the town was named for him. May it stand for all time."
+  },
+  {
+    "name": "LORD CAINEN'S HALL",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "LORD CAINEN'S",
+      "HALL"
+    ],
+    "leaflet": [
+      7708,
+      6967
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ATRAS",
+    "type": "city",
+    "kingdom": "Istuis",
+    "leaflet": [
+      3100,
+      11808
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "KEIO",
+    "type": "city",
+    "kingdom": "Istuis",
+    "leaflet": [
+      1389,
+      11758
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "FORTITUDE",
+    "type": "town",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      6039,
+      6417
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ALASTUS",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5661,
+      6183
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "KLEVETTSTEAD",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3627,
+      4626
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "King Klevett was an explorer first, and a leader second, taking any and all opportunity to leave the capital and visit other territories. After Juavelle surrendered the province now known as Antord, Klevett insisted on visiting, traveling towards the western coast, and met many citizens of Juavelle and Anoleth alike, living in relative peace. He reached a homestead in which a carpenter lived with his eleven sons, and commissioned they build him a ship worthy of a king. A great deal of gold was exchanged, and six years later, the King returned to find that the small home had transformed into a large settlement and had been named for him to honour his large investment in the area. He boarded the misspelled 'Pride of Klevittstead' with a crew of fifteen men, including three of the carpenter's sons, and set off on an ocean voyage. Neither he, nor the Pride were ever seen nor heard from again."
+  },
+  {
+    "name": "ARCANREYE",
+    "type": "abandoned",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5278,
+      7678
+    ],
+    "anchor": "left",
+    "status": "",
+    "lore": "Before its mysterious abandonment, Arcanreye was the humble home of the many servants and guards of the Arc, a Lords' Judiciary fort headed by the Holy Lord Jhannai, the last Kasseian, also known as the Daemon Lord due to his hellish appearance, mastery of Light and Truth, and his apparent instability.<br><br>By, approximately, the year 833, every last one of the residents had moved on, some leaving their homes mostly intact.<br><br>The mystery of Arcanreye persists today, though few have the bravery to travel to Grieve and investigate the exodus, in fear that the Daemon Lord may capture them and judge their souls, perhaps subjecting them to a most cruel death."
+  },
+  {
+    "name": "ARC",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5268,
+      7678
+    ],
+    "anchor": "top",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PENBURTON",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4758,
+      7552
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "REDWICK",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4881,
+      8345
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "EBBING",
+    "type": "abandoned",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      6569,
+      7305
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BETHING'S ROCK",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4711,
+      8285
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ANO'LAINE",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4592,
+      8361
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "LORETTA",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3650,
+      8483
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MAVELLIERS",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3699,
+      7765
+    ],
+    "anchor": "top",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BARTON",
+    "type": "town",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4209,
+      3572
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "RATTLER",
+    "type": "town",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7089,
+      4295
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "THOMPSONVILLE",
+    "type": "town",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      7033,
+      5129
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PALLMOT RIVER",
+    "type": "river",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4303,
+      8341
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "YARIMOT RIVER",
+    "type": "river",
+    "kingdom": "",
+    "leaflet": [
+      6290,
+      6891
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "FORT BALLIWAY",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5704,
+      8611
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BALLIWAY HARBOUR",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5573,
+      8686
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BALLRITH LIGHTHOUSE",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5787,
+      8238
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ESPRICH MINING CO. EBBING SOUTH SITE",
+    "type": "abandoned",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "ESPRICH MINING CO.",
+      "EBBING SOUTH SITE"
+    ],
+    "leaflet": [
+      6385,
+      7226
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MOUNT DOUGAL",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5288,
+      7733
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ESPRICH MINING CO. FERRIER SITE",
+    "type": "abandoned",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "ESPRICH",
+      "MINING CO.",
+      "FERRIER",
+      "SITE"
+    ],
+    "leaflet": [
+      5332,
+      7641
+    ],
+    "anchor": "top",
+    "status": "Destroyed",
+    "lore": "The Esprich Ferrier site was once a productive mine, but predominantly employed Yantai prisoner workers, later classified as slaves by the Crown of Anoleth. All equipment was either destroyed or stolen by the Ebbing."
+  },
+  {
+    "name": "FERRIER COLONY",
+    "type": "abandoned",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "FERRIER COLONY"
+    ],
+    "leaflet": [
+      5324,
+      7632
+    ],
+    "anchor": "left",
+    "status": "",
+    "lore": "This small village was once home to the largest colony of Yantai Mentantic prison slaves, discovered after its destruction to have been brutalised by the Esprich Mining Company's guardship.<br><br>It stands today as a tomb, not only for all those dead at the hands of the EMC, but for the soul of the young Prince Alphard, victim of the most astonishingly cruel crime that the Crown has ever suffered."
+  },
+  {
+    "name": "MOUNT DURANNE",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5225,
+      7642
+    ],
+    "anchor": "bottom",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "AYHABUN TEMPLE RUINS",
+    "type": "abandoned",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "AYHABUN TEMPLE RUINS"
+    ],
+    "leaflet": [
+      5233,
+      7652
+    ],
+    "anchor": "left",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PALLMOT'S NECK",
+    "type": "river",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      5291,
+      8286
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "In the year 690AR, the good Queen Lari\u00e2\u20ac\u2122Noct, granddaughter of Lariana the Red, visits Kasseia to discuss the use of echo-communication and its disturbance to the citizenry of Anoleth, given the audible range of each race. The meeting goes poorly, and the Queen is not granted a royal audience as 'the issue at hand is not considered great, as is not her kingdom'. <br><br>Lari'Noct sends further representatives over the next two years, and in the year 692, one of her ambassadors, along with sixteen royal guards, do not return from their visit. Anoleth quickly accuses Kasseia of murder, and declares war which quietly burns on until the abdication of Queen Lari'Noct in 706. This is widely believed to have been spurred by her emotional instability in the face of the constant skirmishes with her northern neighbour.<br><br>Her son, the freshly crowned King Bartholemew, at seventeen years of age, decides to end the conflict with a final, brutal assault, calling a conscription to the Diamondguard and spending almost one year moving troops to the Kasseian border.<br><br>The Diamondguard meet the Kasseian Battalion of Holy Knights close to the coast, known in the modern-day as Ballrith, at Pallmot's Neck. The Kasseian forces are quickly decimated by the vast disparity in Anoleth's favour. Some key Anolethic figures lost their lives in the battle, including the Commander General Braddish, father to the influential head of Astrum's finest dressmaking workshop, Larianne Serenne."
+  },
+  {
+    "name": "BELLNINE BRIDGE",
+    "type": "bridge",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      4820,
+      8272
+    ],
+    "anchor": "right",
+    "angle": 200,
+    "status": "",
+    "lore": "Built by members of the Redwick Tribe before the rule of Lariana the Red, the bridge was named for the system by which it determined tolls for different width of carts without the tedium of manual measurement. Both the east and west lanes of the bridge had four frames from which four sets of bells hung with spring-loaded levers attached to each that reached across the roadway. These levers were easy to actuate, and the first set was placed barely three feet apart, ringing the bells for even the smallest of carts, but not for those on foot or bicycle. The next levers had a gap of only four and a half feet, catching trading carts. After that, seven feet to actuate family wagons, and the final set sat with an opening of eleven feet apart, ringing only for the very largest of merchant cargo caravans. Each overhead bell frame and light lever mechanism was distanced twenty or so feet from the other on the roadway, creating quite the tune for each cart that came through. The widest of the vehicles would ring all four sets of eight bells, each of which was tuned to its own pitch, allowing multiple carts to cross at once so long as the ear of the tollmaster was sharp enough to detect each in musical sequence. The final ninth bell was far smaller than the others and of the highest pitch, close to the tollmaster's cabin, indicating that the cart had approached the last, locked, gait and was awaiting toll collection.<br><br>Some less financially fortunate individuals making the crossing would attempt a variety of methods to limit the noise they made on the journey from one side to the other, such as riding very slowly through the springed levers, or attempting to cross to the opposite lane of the bridge to avoid them, but were rarely successful in beating the bells by the time they reached the ninth, often being charged for damages on top of the crossing fees."
+  },
+  {
+    "name": "VELLMOT RIVER",
+    "type": "river",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      3712,
+      7589
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MOUNT SAINT ANN",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "MOUNT",
+      "SAINT ANN"
+    ],
+    "leaflet": [
+      3914,
+      8238
+    ],
+    "anchor": "bottom",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "PICKSLEY FARM SUPPLY",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "PICKSLEY FARM SUPPLY"
+    ],
+    "leaflet": [
+      4629,
+      8361
+    ],
+    "anchor": "right",
+    "status": "Owned by Adrian Picksley",
+    "lore": "If you're interested in upgrading your farm, or even thinking of starting your own this spring, think Picksley's for the latest in agricultural tools and machinery for large land areas. Picksley's imports the very latest manless machinery for every stage of the season from land preparation to harvest time, minimising the workload of the modern farmer by a clear margin. From crop-dusters to ultrawide rotary harvesters, we've got you covered. The wonderful world of manned and manless farming machinery awaits you, fifteen miles north of Ano'Laine at water's edge. When you think heavy agricultural machinery, think Picksley's!"
+  },
+  {
+    "name": "TECMA EYDTEX FREYNE SITE SIX",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "TECMA EYDTEX",
+      "FREYNE SITE SIX"
+    ],
+    "leaflet": [
+      6326,
+      8598
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "The realmspace of the Freyne Isles are rich with eydt glass, and across over 1000 miles squared, 55 mining sites have existed over the last century. However, only 7 sites remain, purchased from the Esprich Mining Company by Tecma Eydtex to prevent further terrorism. The largest of these locations is Site Six, employing over 400 Menakh Menyantic mining professionals, fairly paid for the valuable work they provide. After all, only those with Menyantic phasing abilities are able to work under the tough conditions of long exposure to realmspace to extract eydt and return it to realspace for manipulation. Tecma Eydtex remains dedicated to maintaining the safest, healthiest, and most financially rewarding employment conditions for its essential workers, and entirely condemns slavery, excluding required punitive actions that relate to employee discipline that is necessary for the effective engagement of those of Menyantic genetic heritage, and its related emotional disposition, in the performance of their duties, up to and including the use of fiscal incentivisation and communicative isolation from other workers where unavoidable under given circumstances."
+  },
+  {
+    "name": "RHINEWAY BAY",
+    "type": "region",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2800,
+      6077
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": "Made famous by the Poet Ahren Yinnema in his 'Pipits and Swifts of Rhineway Bay', a tongue-in-cheek collection of poems that have been theorised to contain sentiment that mocks or contradicts the monarchy and military of Anoleth. The area remains today as the training ground for Anoleth's Diamondguard Naval forces, a fleet of 9 ships that are crafted predominantly from wood with steel and eydt reinforcement. The bay has a warm climate, and the coast is home to a great number of birds both small and large.<br><br><i>I sit upon the sands and look across a crystal bay,<br>Then see the ebb and flow of diamonds cast their shadows grey, <br>Oh, shan't they bother other seas and scare not swifts away?<br>But s'pose they do, and impose on you, <br>Be it Klevettstead or Balliway, the horizons yet dismay.</i>"
+  },
+  {
+    "name": "RHINEWAY PORT",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2506,
+      6372
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "SEA OF HEAVEN",
+    "type": "sea",
+    "wrap": [
+      "SEA OF",
+      "HEAVEN"
+    ],
+    "leaflet": [
+      8732,
+      5427
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MOUNT TUMMEN CROFT",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "MOUNT",
+      "TUMMEN",
+      "CROFT"
+    ],
+    "leaflet": [
+      2679,
+      5147
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "ASHCLIFFE GRAINE PENAL COLONY",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "ASHCLIFFE GRAINE",
+      "PENAL COLONY"
+    ],
+    "leaflet": [
+      2805,
+      6524
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "LAKE MADISON",
+    "type": "lake",
+    "kingdom": "Menyantis",
+    "leaflet": [
+      5192,
+      3932
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "WELLOW LAKE",
+    "type": "lake",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      2598,
+      5412
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "MOUNT BREIGH FONT",
+    "type": "mountain",
+    "kingdom": "Anoleth",
+    "wrap": [
+      "MOUNT",
+      "BREIGH FONT"
+    ],
+    "leaflet": [
+      4309,
+      6362
+    ],
+    "anchor": "top",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "SUNAHAREE RIVER",
+    "type": "river",
+    "kingdom": "Juavelle",
+    "leaflet": [
+      2128,
+      4651
+    ],
+    "wrap": [
+      "SUNAHAREE",
+      "RIVER"
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "BLACK MOUNTAIN",
+    "type": "landmark",
+    "kingdom": "Anoleth",
+    "leaflet": [
+      8574,
+      3908
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  },
+  {
+    "name": "TENNEMEN'S WARD",
+    "type": "landmark",
+    "kingdom": "Astrum",
+    "leaflet": [
+      2495,
+      9595
+    ],
+    "anchor": "right",
+    "status": "",
+    "lore": ""
+  }
+]

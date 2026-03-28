@@ -1,0 +1,14 @@
+{
+  "book": "Book One",
+  "parts": {
+    "1": { "title": "Part I — The Last Days", "range": [1, 10] },
+    "2": { "title": "Part II — An Age of Great Heroes", "range": [11, 20] },
+    "3": { "title": "Part III — The Mysterious Gentleman Thief", "range": [21, 30] },
+    "4": { "title": "Part IV — Now, The King Must Die", "range": [31, 42] },
+    "5": { "title": "Part V — The King's Boy", "range": [43, 50] },
+    "6": { "title": "Part VI — Don't Panic", "range": [51, 51] }
+  },
+  "chapters": [
+    { "number": 1, "name": "Grieve", "tip": "Entering\u2026", "image": "chapters/images/logos/romlogovec.svg" }
+  ]
+}
