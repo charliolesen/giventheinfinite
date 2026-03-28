@@ -9,6 +9,8 @@
     "6": { "title": "Part VI — Don't Panic", "range": [51, 51] }
   },
   "chapters": [
-    { "number": 1, "name": "Grieve", "tip": "Entering\u2026", "image": "chapters/images/logos/romlogovec.svg" }
+    { "number": 1, "name": "Grieve", "tip": "Entering\u2026", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 2, "name": "The Man with the Bug in His Arm" },
+    { "number": 3, "name": "The Silver Star" }
   ]
 }

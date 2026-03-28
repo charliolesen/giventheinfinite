@@ -107,80 +107,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function initReader(tocList, chapterContent) {
-  // Load optional metadata from chapters.json (names, tips, images, parts)
+  // Build TOC entirely from chapters.json — no probing, no pre-fetching
   let data = { parts: {}, chapters: [] };
   try {
     const res = await fetch('chapters/chapters.json');
     if (res.ok) data = await res.json();
-  } catch { /* no metadata file — that's fine */ }
+  } catch { /* no metadata file */ }
 
-  // Build a lookup from chapter number to its metadata
-  const metaByNumber = {};
-  (data.chapters || []).forEach(ch => { metaByNumber[ch.number] = ch; });
   const partConfig = data.parts || {};
 
-  // Auto-discover chapters by probing GTIchap1.docx, GTIchap2.docx, ...
-  // Probe up to the max chapter number defined in part ranges (or at least 60)
-  let maxProbe = 60;
-  for (const cfg of Object.values(partConfig)) {
-    if (cfg.range) maxProbe = Math.max(maxProbe, cfg.range[1]);
-  }
-
-  const chapters = [];
-  for (let n = 1; n <= maxProbe; n++) {
-    const file = `GTIchap${n}.docx`;
-    try {
-      const probe = await fetch('chapters/' + file, { method: 'HEAD' });
-      if (!probe.ok) continue;
-    } catch { continue; }
-
-    const meta = metaByNumber[n] || {};
-    let name = meta.name || '';
-    let tip = meta.tip || '';
-    let image = 'image' in meta ? meta.image : 'chapters/images/logos/romlogovec.svg';
-
-    // If no name in metadata, extract it from the docx
-    if (!name) {
-      try {
-        const res = await fetch('chapters/' + file);
-        const buf = await res.arrayBuffer();
-        const rawResult = await mammoth.extractRawText({ arrayBuffer: buf });
-        const lines = rawResult.value.split('\n').map(l => l.trim()).filter(l => l);
-        // Find the line that is just the chapter number, the next line is the name
-        for (let i = 0; i < lines.length; i++) {
-          if (lines[i] === String(n) && i + 1 < lines.length) {
-            name = lines[i + 1];
-            // If there's italic text before the number, that's the tip
-            if (i > 0 && !tip) tip = lines.slice(0, i).join(' ');
-            break;
-          }
-        }
-        if (!name) name = `Chapter ${n}`;
-      } catch {
-        name = `Chapter ${n}`;
-      }
-    }
-
+  const chapters = (data.chapters || []).map(ch => {
     // Determine part from explicit meta, or auto-assign from part ranges
-    let part = meta.part || 1;
-    if (!meta.part && partConfig) {
+    let part = ch.part || 1;
+    if (!ch.part && partConfig) {
       for (const [key, cfg] of Object.entries(partConfig)) {
-        if (cfg.range && n >= cfg.range[0] && n <= cfg.range[1]) {
+        if (cfg.range && ch.number >= cfg.range[0] && ch.number <= cfg.range[1]) {
           part = Number(key);
           break;
         }
       }
     }
-
-    chapters.push({
+    return {
       part,
-      number: n,
-      name,
-      tip,
-      image,
-      file
-    });
-  }
+      number: ch.number,
+      name: ch.name || `Chapter ${ch.number}`,
+      tip: ch.tip || '',
+      image: 'image' in ch ? ch.image : 'chapters/images/logos/romlogovec.svg',
+      file: `GTIchap${ch.number}.docx`
+    };
+  });
 
   if (chapters.length === 0) {
     chapterContent.innerHTML = '<p>No chapters found.</p>';
