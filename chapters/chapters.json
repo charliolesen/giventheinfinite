@@ -11,6 +11,7 @@
   "chapters": [
     { "number": 1, "name": "Grieve", "tip": "Entering\u2026", "image": "chapters/images/logos/romlogovec.svg" },
     { "number": 2, "name": "The Man with the Bug in His Arm" },
-    { "number": 3, "name": "The Silver Star" }
+    { "number": 3, "name": "The Silver Star" },
+    { "number": 4, "name": "New Dawn" }
   ]
 }
