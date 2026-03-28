@@ -137,7 +137,7 @@ async function initReader(tocList, chapterContent) {
     const meta = metaByNumber[n] || {};
     let name = meta.name || '';
     let tip = meta.tip || '';
-    let image = 'image' in meta ? meta.image : 'chapters/images/logos/romlogomasked.svg';
+    let image = 'image' in meta ? meta.image : 'chapters/images/logos/romlogovec.svg';
 
     // If no name in metadata, extract it from the docx
     if (!name) {

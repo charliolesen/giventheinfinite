@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Reem Kufi';
+  src: url('fonts/ReemKufi-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 /* ── Reset & Base ── */
 *, *::before, *::after {
   margin: 0;
@@ -87,8 +94,8 @@ body::before {
   inset: 0;
   background: linear-gradient(to right,
     transparent,
-    rgba(0, 0, 0, 0.75) 20%,
-    rgba(0, 0, 0, 0.75) 80%,
+    rgba(0, 0, 0, 0.82) 20%,
+    rgba(0, 0, 0, 0.82) 80%,
     transparent
   );
   z-index: 0;
@@ -135,7 +142,7 @@ a:hover {
 }
 
 .nav-logo {
-  font-family: var(--font-ui);
+  font-family: 'Reem Kufi', var(--font-ui);
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -204,18 +211,19 @@ a:hover {
 }
 
 .hero h1 {
-  font-family: 'EB Garamond', 'Georgia', serif;
-  font-size: 3.5rem;
+  font-family: 'Reem Kufi', 'EB Garamond', serif;
+  font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .tagline {
   font-family: 'EB Garamond', 'Georgia', serif;
   font-style: normal;
   color: var(--text);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   letter-spacing: 0.05em;
 }
 
@@ -233,7 +241,7 @@ a:hover {
 
 .about h2 {
   font-family: 'EB Garamond', 'Georgia', serif;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   margin-bottom: 1rem;
   color: var(--text);
   font-weight: 600;
@@ -242,6 +250,7 @@ a:hover {
 .about p {
   color: var(--text);
   margin-bottom: 1.5rem;
+  font-size: 1.15rem;
 }
 
 .about .character-desc {
@@ -355,7 +364,7 @@ a:hover {
 
 .toc h2 {
   font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
@@ -369,7 +378,7 @@ a:hover {
 .toc-book > span {
   display: block;
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 1rem;
@@ -380,7 +389,7 @@ a:hover {
 .toc-part > span {
   display: block;
   font-family: var(--font-ui);
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -394,7 +403,7 @@ a:hover {
 .toc-link {
   display: block;
   padding: 0.3rem 0 0.3rem 1rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-muted);
   border-left: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
@@ -561,11 +570,11 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: 0.4rem 0;
-  justify-content: flex-end;
+  position: fixed;
+  top: calc(var(--nav-h, 57px) + 0.5rem);
+  right: 1rem;
+  z-index: 12;
+  padding: 0;
 }
 
 .font-size-controls button {
@@ -598,10 +607,13 @@ a:hover {
 .font-size-controls .font-size-label {
   font-family: var(--font-ui);
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: #111;
   min-width: 2.5rem;
   text-align: center;
   user-select: none;
+  background: rgba(255,255,255,0.75);
+  border-radius: 999px;
+  padding: 0.1rem 0.4rem;
 }
 
 .chapter-body {
@@ -622,6 +634,18 @@ a:hover {
   color: var(--text-muted);
   font-style: italic;
   text-indent: 0;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%  { content: ''; }
+  25% { content: '.'; }
+  50% { content: '..'; }
+  75% { content: '...'; }
 }
 
 .chapter-pages {

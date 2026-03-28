@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Map — Given the Infinite</title>
+  <title>Map | Given the Infinite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,41 @@
     </ul>
   </nav>
 
+  <!-- Loading screen -->
+  <div id="map-loader" class="map-loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">Charting the world of Eydtea...</p>
+    </div>
+  </div>
+
   <div id="world-map"></div>
+
+  <button id="key-toggle" class="key-toggle" aria-label="Toggle map key">Key</button>
+  <div id="map-key" class="map-key open">
+    <label class="key-item"><input type="checkbox" checked data-layer="kingdom"><span class="key-icon key-icon-kingdom"></span> Kingdom</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="capital"><span class="key-icon key-icon-capital"></span> Capital</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="region"><span class="key-icon key-icon-region"></span> Region</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="city"><span class="key-icon key-icon-city"></span> City</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="town"><span class="key-icon key-icon-town"></span> Town</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="landmark"><span class="key-icon key-icon-landmark"></span> Landmark</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="mountain"><span class="key-icon key-icon-mountain"></span> Mountain</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="sea"><span class="key-icon key-icon-sea"></span> Sea</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="river"><span class="key-icon key-icon-river"></span> River</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="abandoned"><span class="key-icon key-icon-abandoned"></span> Abandoned</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="bridge"><span class="key-icon key-icon-bridge"></span> Bridge</label>
+    <label class="key-item"><input type="checkbox" checked data-layer="lake"><span class="key-icon key-icon-lake"></span> Lake</label>
+    <button id="key-deselect" class="key-deselect">Deselect All</button>
+  </div>
+
+  <button id="coord-toggle" class="coord-toggle" aria-label="Toggle coordinate picker">Coords</button>
+  <div id="coord-toast" class="coord-toast"></div>
+
+  <button id="search-toggle" class="search-toggle" aria-label="Toggle search">Search</button>
+  <div id="search-panel" class="search-panel">
+    <input type="text" id="search-input" class="search-input" placeholder="Search places...">
+    <div id="search-results" class="search-results"></div>
+  </div>
 
   <div id="info-panel" class="info-panel">
     <button class="info-close" aria-label="Close">&times;</button>
