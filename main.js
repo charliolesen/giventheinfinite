@@ -200,13 +200,21 @@ async function initReader(tocList, chapterContent) {
 }
 
 async function loadChapter(chapter, container, chapters) {
+  const imageHtml = chapter.image
+    ? `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(chapter.image)}" alt=""></div>`
+    : '';
   const tipHtml = chapter.tip
-    ? `<p class="reader-loading-tip">${escapeHtml(chapter.tip)}</p>`
+    ? `<p class="chapter-tip">${escapeHtml(chapter.tip)}</p>`
     : '';
   container.innerHTML = `
-    <div class="reader-loading">
-      <p class="reader-loading-label">Loading Chapter ${escapeHtml(String(chapter.number))} &mdash; ${escapeHtml(chapter.name)}</p>
+    <div class="chapter-header">
+      ${imageHtml}
       ${tipHtml}
+      <span class="chapter-number">${escapeHtml(String(chapter.number))}</span>
+      <span class="chapter-name">${escapeHtml(chapter.name)}</span>
+      <hr class="chapter-divider">
+    </div>
+    <div class="chapter-body-placeholder">
       <p class="reader-loading-dots loading-dots">Loading</p>
     </div>`;
 
@@ -277,20 +285,14 @@ async function loadChapter(chapter, container, chapters) {
       break;
     }
 
-    // Build header from extracted data
-    let header = '<div class="chapter-header">';
-    if (extractedImage) {
-      header += `<div class="chapter-image-wrap"><img class="chapter-image" src="${escapeAttr(extractedImage)}" alt=""></div>`;
+    // Replace the loading placeholder with the chapter body, keeping the header
+    const placeholder = container.querySelector('.chapter-body-placeholder');
+    if (placeholder) {
+      const body = document.createElement('div');
+      body.className = 'chapter-body';
+      body.innerHTML = temp.innerHTML;
+      placeholder.replaceWith(body);
     }
-    if (extractedTip) {
-      header += `<p class="chapter-tip">${escapeHtml(extractedTip)}</p>`;
-    }
-    header += `<span class="chapter-number">${escapeHtml(String(chapter.number))}</span>`;
-    header += `<span class="chapter-name">${escapeHtml(extractedName)}</span>`;
-    header += '<hr class="chapter-divider">';
-    header += '</div>';
-
-    container.innerHTML = header + '<div class="chapter-body">' + temp.innerHTML + '</div>';
 
     // CYOA: add interactive choice links for choose-your-own-adventure chapters
     processCYOA(container, chapters);
