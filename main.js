@@ -479,38 +479,42 @@ function processCYOA(container, chapters) {
     { selector: '.bg-top',    src: 'images/bgs/grievelayers/staticgrievetop.png' },
   ];
 
-  // Load then fully decode all images before touching the DOM
-  const loaded = [];
-  const promises = bgAssets.map(asset => {
-    const el = document.querySelector(asset.selector);
-    if (!el) return Promise.resolve();
+  function loadAndDecode(src) {
     return new Promise(resolve => {
       const img = new Image();
       img.onload = () => {
-        const finish = () => { loaded.push({ el, src: asset.src }); resolve(); };
-        // decode() after load ensures fully rasterized — no progressive line-by-line
-        if (img.decode) {
-          img.decode().then(finish).catch(finish);
-        } else {
-          finish();
-        }
+        if (img.decode) img.decode().then(() => resolve(img)).catch(() => resolve(img));
+        else resolve(img);
       };
-      img.onerror = () => resolve();
-      img.src = asset.src;
+      img.onerror = () => resolve(null);
+      img.src = src;
     });
+  }
+
+  const bgPromises = bgAssets.map(asset => {
+    const el = document.querySelector(asset.selector);
+    if (!el) return Promise.resolve(null);
+    return loadAndDecode(asset.src).then(img => img ? { el, src: asset.src } : null);
   });
 
-  Promise.all(promises).then(() => {
-    // Apply backgrounds while still hidden (visibility:hidden in CSS)
-    loaded.forEach(({ el, src }) => {
-      el.style.backgroundImage = `url('${src}')`;
-    });
+  // On index, also preload pariah so it's ready before the fade-in
+  const pariahCanvas = document.getElementById('pariah-canvas');
+  const pariahPromise = pariahCanvas
+    ? loadAndDecode('images/bgs/grievelayers/pariah.png')
+    : Promise.resolve(null);
+
+  Promise.all([...bgPromises, pariahPromise]).then(results => {
+    const pariahImg = results[results.length - 1];
+    const bgResults = results.slice(0, bgPromises.length);
+
+    // Apply backgrounds while still hidden
+    bgResults.forEach(r => { if (r) r.el.style.backgroundImage = `url('${r.src}')`; });
+
     // Wait two frames for browser to composite before revealing
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        // Reveal all bg layers including canvases
         document.querySelectorAll('.bg-layer').forEach(el => el.classList.add('loaded'));
-        initPariah();
+        setTimeout(() => initPariah(pariahImg), 1000);
         initFireflies();
       });
     });
@@ -518,9 +522,9 @@ function processCYOA(container, chapters) {
 })();
 
 // ── Pariah apparition (homepage only) ──
-function initPariah() {
+function initPariah(img) {
   const canvas = document.getElementById('pariah-canvas');
-  if (!canvas) return;
+  if (!canvas || !img) return;
   const ctx = canvas.getContext('2d');
 
   let W, H;
@@ -532,10 +536,8 @@ function initPariah() {
   window.addEventListener('resize', resize);
 
   const CHANCE = 1.0; // 100% for testing — change to 0.03 for 3%
-  const img = new Image();
-  img.src = 'images/bgs/grievelayers/pariah.png';
 
-  img.onload = () => {
+  (function run() {
     if (Math.random() > CHANCE) return;
 
     // Smaller size (65% of original calc), positioned between 10%-40% of screen height
@@ -901,7 +903,7 @@ function initPariah() {
     }
 
     requestAnimationFrame(draw);
-  };
+  })();
 }
 
 // ── Fireflies (homepage only) ──
