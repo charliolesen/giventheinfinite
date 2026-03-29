@@ -511,6 +511,10 @@ a:hover {
   border-color: var(--accent);
 }
 
+.giscus-wrap {
+  margin-top: 3rem;
+}
+
 /* ── CYOA interactive choices ── */
 .cyoa-choice {
   cursor: pointer;

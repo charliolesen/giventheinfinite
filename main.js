@@ -311,7 +311,7 @@ async function loadChapter(chapter, container, chapters) {
         const next = chapters[idx + 1];
         const btn = document.createElement('button');
         btn.className = 'next-chapter-btn';
-        btn.textContent = `Next: ${next.number} \u2014 ${next.name}`;
+        btn.textContent = `Next: ${next.number} | ${next.name}`;
         btn.addEventListener('click', () => {
           // Update TOC active state
           document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
@@ -326,6 +326,28 @@ async function loadChapter(chapter, container, chapters) {
         container.appendChild(btn);
       }
     }
+
+    // Insert Giscus comment widget after next-chapter button
+    const giscusDiv = document.createElement('div');
+    giscusDiv.className = 'giscus-wrap';
+    const giscusScript = document.createElement('script');
+    giscusScript.src = 'https://giscus.app/client.js';
+    giscusScript.setAttribute('data-repo', 'charliolesen/giventheinfinite');
+    giscusScript.setAttribute('data-repo-id', '');
+    giscusScript.setAttribute('data-category', 'General');
+    giscusScript.setAttribute('data-category-id', '');
+    giscusScript.setAttribute('data-mapping', 'specific');
+    giscusScript.setAttribute('data-term', `Chapter ${chapter.number} | ${chapter.name}`);
+    giscusScript.setAttribute('data-strict', '0');
+    giscusScript.setAttribute('data-reactions-enabled', '1');
+    giscusScript.setAttribute('data-emit-metadata', '0');
+    giscusScript.setAttribute('data-input-position', 'top');
+    giscusScript.setAttribute('data-theme', 'dark');
+    giscusScript.setAttribute('data-lang', 'en');
+    giscusScript.crossOrigin = 'anonymous';
+    giscusScript.async = true;
+    giscusDiv.appendChild(giscusScript);
+    container.appendChild(giscusDiv);
 
     container.scrollTop = 0;
     container.closest('.reader')?.scrollTo(0, 0);
