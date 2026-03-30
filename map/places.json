@@ -864,10 +864,10 @@
     "type": "landmark",
     "kingdom": "Anoleth",
     "leaflet": [
-      5573,
-      8686
+      5661,
+      8678
     ],
-    "anchor": "right",
+    "anchor": "bottom",
     "status": "",
     "lore": ""
   },
@@ -1211,7 +1211,10 @@
     "name": "MERRIMONT CROWN PORT",
     "type": "landmark",
     "kingdom": "Anoleth",
-    "leaflet": [4064, 9258],
+    "leaflet": [
+      4064,
+      9258
+    ],
     "anchor": "right",
     "status": "",
     "lore": ""
@@ -1220,7 +1223,10 @@
     "name": "MERRIMONT CROWN AIRFIELD",
     "type": "landmark",
     "kingdom": "Anoleth",
-    "leaflet": [4120, 9188],
+    "leaflet": [
+      4120,
+      9188
+    ],
     "anchor": "right",
     "status": "",
     "lore": ""
