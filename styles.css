@@ -373,6 +373,7 @@ a:hover {
 
 .toc ul {
   list-style: none;
+  padding-bottom: 6rem;
 }
 
 .toc-book > span {
