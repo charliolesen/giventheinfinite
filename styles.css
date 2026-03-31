@@ -356,6 +356,23 @@ a:hover {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.toc::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.toc::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .toc.hidden {
   transform: translateX(-100%);
   opacity: 0;
