@@ -17,6 +17,7 @@
     { "number": 6, "name": "His Father", "tip": "The previous King of Anoleth, Lor'End Lucien, was a brutal but effective monarch, losing his control only in the weeks leading up to his murder by New Dawn rebels.", "image": "chapters/images/logos/romlogovec.svg" },
     { "number": 7, "name": "The Lion and the Swift", "tip": "The Lords' Judiciary is the legal system governing Anoleth - except its capital, where the Judge Superior rules on crime and punishment.", "image": "chapters/images/logos/romlogovec.svg" },
     { "number": 8, "name": "Fort Balliway", "tip": "Menyantis and Anoleth are separated by the Yarimot River, which ends at the Freyne Channel toward the North Wilder Sea.", "image": "chapters/images/logos/romlogovec.svg" },
-    { "number": 9, "name": "Obria", "tip": "The Crown Judiciary command a number of coalition strongholds with the Lords, in order to transfer prisoners between the two systems.", "image": "chapters/images/logos/romlogovec.svg" }
+    { "number": 9, "name": "Obria", "tip": "The Crown Judiciary command a number of coalition strongholds with the Lords, in order to transfer prisoners between the two systems.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 10, "name": "There is a Tale to be Told, Here", "tip": "Lord Jhannai is the last of his species, the Kasseian, a daemonic race of winged giants created during the warring age of the Old Kings, and destroyed by Anoleth.", "image": "chapters/images/logos/romlogovec.svg" }
   ]
 }

@@ -187,6 +187,7 @@ async function initReader(tocList, chapterContent) {
         e.preventDefault();
         document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
         a.classList.add('active');
+        swapBackground(ch.part);
         loadChapter(ch, chapterContent, chapters);
       });
       li.appendChild(a);
@@ -500,24 +501,77 @@ function processCYOA(container, chapters) {
 }
 
 // ── Background asset lazy loader ──
+const partBackgrounds = {
+  1: [
+    { selector: '.bg-bottom', src: 'images/bgs/Grieve.png' },
+    { selector: '.bg-sky',    src: '' },
+    { selector: '.bg-top',    src: '' },
+  ],
+  2: [
+    { selector: '.bg-bottom', src: 'images/bgs/LittlewoodIsle.png' },
+    { selector: '.bg-sky',    src: '' },
+    { selector: '.bg-top',    src: '' },
+  ],
+};
+
+function loadAndDecode(src) {
+  return new Promise(resolve => {
+    if (!src) { resolve(null); return; }
+    const img = new Image();
+    img.onload = () => {
+      if (img.decode) img.decode().then(() => resolve(img)).catch(() => resolve(img));
+      else resolve(img);
+    };
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
+let currentBgPart = null;
+
+function swapBackground(partNum) {
+  const key = partBackgrounds[partNum] ? partNum : 1;
+  if (key === currentBgPart) return;
+  currentBgPart = key;
+
+  const assets = partBackgrounds[key];
+  const layers = document.querySelectorAll('.bg-layer');
+
+  // Fade out layers
+  layers.forEach(el => el.classList.remove('loaded'));
+
+  setTimeout(() => {
+    const promises = assets.map(asset => {
+      const el = document.querySelector(asset.selector);
+      if (!el) return Promise.resolve(null);
+      if (!asset.src) {
+        el.style.backgroundImage = '';
+        return Promise.resolve(null);
+      }
+      return loadAndDecode(asset.src).then(img => img ? { el, src: asset.src } : null);
+    });
+
+    Promise.all(promises).then(results => {
+      results.forEach(r => { if (r) r.el.style.backgroundImage = `url('${r.src}')`; });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          layers.forEach(el => el.classList.add('loaded'));
+        });
+      });
+    });
+  }, 500);
+}
+
 (function lazyLoadBGs() {
-  const bgAssets = [
+  const isReadPage = !!document.querySelector('.page-read');
+  const partKeys = Object.keys(partBackgrounds);
+  const randomPart = partKeys[Math.floor(Math.random() * partKeys.length)];
+  if (isReadPage) currentBgPart = Number(randomPart);
+  const bgAssets = isReadPage ? partBackgrounds[randomPart] : [
     { selector: '.bg-bottom', src: 'images/bgs/grievelayers/staticgrievebottom.png' },
     { selector: '.bg-sky',    src: 'images/bgs/grievelayers/seamlessskytrans.png' },
     { selector: '.bg-top',    src: 'images/bgs/grievelayers/staticgrievetop.png' },
   ];
-
-  function loadAndDecode(src) {
-    return new Promise(resolve => {
-      const img = new Image();
-      img.onload = () => {
-        if (img.decode) img.decode().then(() => resolve(img)).catch(() => resolve(img));
-        else resolve(img);
-      };
-      img.onerror = () => resolve(null);
-      img.src = src;
-    });
-  }
 
   const bgPromises = bgAssets.map(asset => {
     const el = document.querySelector(asset.selector);
@@ -542,6 +596,7 @@ function processCYOA(container, chapters) {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.querySelectorAll('.bg-layer').forEach(el => el.classList.add('loaded'));
+        if (!currentBgPart) currentBgPart = 1;
         setTimeout(() => initPariah(pariahImg), 1000);
         initFireflies();
       });

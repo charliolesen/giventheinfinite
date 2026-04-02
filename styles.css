@@ -81,6 +81,10 @@ body {
   to   { background-position: -2000px 0; }
 }
 
+body:has(.page-read) .bg-sky.loaded {
+  animation: none;
+}
+
 .bg-top {
   z-index: -1;
   background-size: cover;
@@ -402,6 +406,10 @@ a:hover {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
+}
+
+.toc-part ul {
+  padding-bottom: 1rem;
 }
 
 .toc-part > span {
