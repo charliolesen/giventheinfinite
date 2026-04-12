@@ -18,6 +18,9 @@
     { "number": 7, "name": "The Lion and the Swift", "tip": "The Lords' Judiciary is the legal system governing Anoleth - except its capital, where the Judge Superior rules on crime and punishment.", "image": "chapters/images/logos/romlogovec.svg" },
     { "number": 8, "name": "Fort Balliway", "tip": "Menyantis and Anoleth are separated by the Yarimot River, which ends at the Freyne Channel toward the North Wilder Sea.", "image": "chapters/images/logos/romlogovec.svg" },
     { "number": 9, "name": "Obria", "tip": "The Crown Judiciary command a number of coalition strongholds with the Lords, in order to transfer prisoners between the two systems.", "image": "chapters/images/logos/romlogovec.svg" },
-    { "number": 10, "name": "There is a Tale to be Told, Here", "tip": "Lord Jhannai is the last of his species, the Kasseian, a daemonic race of winged giants created during the warring age of the Old Kings, and destroyed by Anoleth.", "image": "chapters/images/logos/romlogovec.svg" }
+    { "number": 10, "name": "There is a Tale to be Told, Here", "tip": "Lord Jhannai is the last of his species, the Kasseian, a daemonic race of winged giants created during the warring age of the Old Kings, and destroyed by Anoleth.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 11, "name": "The Replacement", "tip": "The Ebbing Yantai Militia is a band of escaped and freed Menyantic prison-slaves, known for the destruction of the Esprich Mining Company, and the theft of The Pariah Realmship.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 12, "name": "Deathtongue, and Other Heroes", "tip": "All-Powers are magics granted by Gods in one of the ten forms of universe and man: gravity, matter, light, void, time - and - strength, will, justice, humility, truth.", "image": "chapters/images/logos/romlogovec.svg" },
+    { "number": 13, "name": "Tomorrow Come", "tip": "Each race in Eydtea has their own general strength - Anolethic are physically powerful and heal quickly, while Istuistans are highly logical, perceptive, and intelligent.", "image": "chapters/images/logos/romlogovec.svg" }
   ]
 }

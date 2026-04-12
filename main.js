@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (tocList && chapterContent) {
+  if (tocList && chapterContent && page === 'read.html') {
     initReader(tocList, chapterContent);
 
     // Reading progress bar — listen on both reader div and window to cover all layouts
@@ -364,6 +364,33 @@ const FONT_MAX = 1.8;
 const FONT_STEP = 0.05;
 const FONT_DEFAULT = 1.065;
 
+// ── Font family selector ──
+const FONT_FAMILY_KEY = 'gti-reader-font-family';
+const FONT_OPTIONS = [
+  { label: 'EB Garamond', value: "'EB Garamond', 'Georgia', serif" },
+  { label: 'Georgia', value: "Georgia, 'Times New Roman', serif" },
+  { label: 'Times New Roman', value: "'Times New Roman', Times, serif" },
+  { label: 'Lora', value: "'Lora', Georgia, serif", google: 'Lora:ital,wght@0,400;0,600;1,400' },
+  { label: 'Merriweather', value: "'Merriweather', Georgia, serif", google: 'Merriweather:ital,wght@0,400;0,700;1,400' },
+  { label: 'Libre Baskerville', value: "'Libre Baskerville', Georgia, serif", google: 'Libre+Baskerville:ital,wght@0,400;0,700;1,400' },
+  { label: 'Source Serif 4', value: "'Source Serif 4', Georgia, serif", google: 'Source+Serif+4:ital,wght@0,400;0,600;1,400' },
+  { label: 'Crimson Text', value: "'Crimson Text', Georgia, serif", google: 'Crimson+Text:ital,wght@0,400;0,600;1,400' },
+];
+
+const _loadedGoogleFonts = new Set();
+function loadGoogleFont(spec) {
+  if (!spec || _loadedGoogleFonts.has(spec)) return;
+  _loadedGoogleFonts.add(spec);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `https://fonts.googleapis.com/css2?family=${spec}&display=swap`;
+  document.head.appendChild(link);
+}
+
+function getStoredFontFamily() {
+  return localStorage.getItem(FONT_FAMILY_KEY) || FONT_OPTIONS[0].value;
+}
+
 function getStoredFontSize() {
   const val = parseFloat(localStorage.getItem(FONT_SIZE_KEY));
   return (val >= FONT_MIN && val <= FONT_MAX) ? val : FONT_DEFAULT;
@@ -377,11 +404,20 @@ function initFontSizeControls(container) {
   let size = getStoredFontSize();
   body.style.fontSize = size + 'rem';
 
+  // Apply stored font family
+  const storedFont = getStoredFontFamily();
+  const storedOption = FONT_OPTIONS.find(f => f.value === storedFont);
+  if (storedOption && storedOption.google) loadGoogleFont(storedOption.google);
+  body.style.fontFamily = storedFont;
+
   // Remove any existing controls (chapter reload)
   container.querySelector('.font-size-controls')?.remove();
 
   const bar = document.createElement('div');
   bar.className = 'font-size-controls';
+
+  const sizeRow = document.createElement('div');
+  sizeRow.className = 'font-size-row';
 
   const btnDec = document.createElement('button');
   btnDec.className = 'font-btn-decrease';
@@ -408,7 +444,29 @@ function initFontSizeControls(container) {
   btnDec.addEventListener('click', () => update(size - FONT_STEP));
   btnInc.addEventListener('click', () => update(size + FONT_STEP));
 
-  bar.append(btnDec, label, btnInc);
+  sizeRow.append(btnDec, label, btnInc);
+
+  // Font family selector
+  const fontSelect = document.createElement('select');
+  fontSelect.className = 'font-family-select';
+  fontSelect.title = 'Choose font';
+  FONT_OPTIONS.forEach(opt => {
+    const option = document.createElement('option');
+    option.value = opt.value;
+    option.textContent = opt.label;
+    option.style.fontFamily = opt.value;
+    if (opt.value === storedFont) option.selected = true;
+    fontSelect.appendChild(option);
+  });
+
+  fontSelect.addEventListener('change', () => {
+    const chosen = FONT_OPTIONS.find(f => f.value === fontSelect.value);
+    if (chosen && chosen.google) loadGoogleFont(chosen.google);
+    body.style.fontFamily = fontSelect.value;
+    localStorage.setItem(FONT_FAMILY_KEY, fontSelect.value);
+  });
+
+  bar.append(sizeRow, fontSelect);
   container.insertBefore(bar, container.firstChild);
 }
 

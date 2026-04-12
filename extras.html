@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Additional Writings | Given the Infinite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="images/favicon/site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .adult-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 2rem;
+    }
+
+    .adult-gate-box {
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+      max-width: 460px;
+      text-align: center;
+    }
+
+    .adult-gate-box h2 {
+      font-family: var(--font-ui);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    .adult-gate-box p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .adult-gate-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .adult-gate-btn {
+      padding: 0.6rem 1.3rem;
+      border-radius: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .adult-gate-btn:hover {
+      border-color: var(--text-muted);
+      color: #fff;
+    }
+
+    .adult-gate-confirm {
+      background: var(--accent-dim);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .adult-gate-confirm:hover {
+      background: var(--accent);
+    }
+
+    /* Extras reader: tame the h1 from mammoth and kill indent on front matter */
+    #chapter-content .chapter-body h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    #chapter-content .chapter-body p:nth-of-type(1) {
+      text-indent: 0;
+    }
+
+    #chapter-content .chapter-body p:nth-of-type(2) {
+      text-indent: 0;
+      font-size: 0.85em;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-layer bg-bottom"></div>
+  <div class="bg-layer bg-sky"></div>
+  <div class="bg-layer bg-top"></div>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">GIVEN THE INFINITE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="read.html">Read</a></li>
+      <li><a href="world.html" class="active">World</a></li>
+      <li><a href="https://ko-fi.com/giventheinfinite" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+  </nav>
+
+  <div class="reading-progress-bar" id="reading-progress"></div>
+  <main class="page-read">
+    <aside class="toc" id="toc-panel">
+      <h2>Additional Writings</h2>
+      <ul id="toc-list"></ul>
+    </aside>
+    <button class="toc-toggle" id="toc-toggle" aria-label="Toggle table of contents"><span class="toc-chevron"></span></button>
+
+    <section class="reader">
+      <article class="chapter" id="chapter-content">
+        <p class="reader-placeholder">Select a piece to begin reading.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Adult content modal (hidden by default) -->
+  <div class="adult-gate" id="adult-gate" style="display:none">
+    <div class="adult-gate-box">
+      <h2>Adult Content</h2>
+      <p>This piece contains adult content.</p>
+      <div class="adult-gate-buttons">
+        <button class="adult-gate-btn adult-gate-confirm" id="adult-confirm">I understand, continue</button>
+        <button class="adult-gate-btn" id="adult-cancel">Go back</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Given the Infinite</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+  (async function () {
+    const tocList = document.getElementById('toc-list');
+    const chapterContent = document.getElementById('chapter-content');
+    const adultGate = document.getElementById('adult-gate');
+    const adultConfirm = document.getElementById('adult-confirm');
+    const adultCancel = document.getElementById('adult-cancel');
+
+    let pendingPiece = null;
+
+    // Load extras.json
+    let data = { series: [] };
+    try {
+      const res = await fetch('chapters/extras/extras.json');
+      if (res.ok) data = await res.json();
+    } catch {}
+
+    function escapeHtml(str) {
+      const d = document.createElement('div');
+      d.textContent = str;
+      return d.innerHTML;
+    }
+
+    // Build TOC from series
+    data.series.forEach(series => {
+      const seriesLi = document.createElement('li');
+      seriesLi.className = 'toc-part';
+      const seriesTitle = document.createElement('span');
+      seriesTitle.textContent = series.title;
+      seriesLi.appendChild(seriesTitle);
+
+      const piecesUl = document.createElement('ul');
+
+      series.pieces.forEach(piece => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'toc-link';
+        a.innerHTML = `<strong>&bull;</strong>&emsp;${escapeHtml(piece.name)}`;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (piece.adult && !sessionStorage.getItem('adult-confirmed-' + piece.file)) {
+            pendingPiece = { piece, link: a };
+            adultGate.style.display = 'flex';
+          } else {
+            activateAndLoad(piece, a);
+          }
+        });
+        li.appendChild(a);
+        piecesUl.appendChild(li);
+      });
+
+      seriesLi.appendChild(piecesUl);
+      tocList.appendChild(seriesLi);
+    });
+
+    // Adult gate handlers
+    adultConfirm.addEventListener('click', () => {
+      if (pendingPiece) {
+        sessionStorage.setItem('adult-confirmed-' + pendingPiece.piece.file, '1');
+        adultGate.style.display = 'none';
+        activateAndLoad(pendingPiece.piece, pendingPiece.link);
+        pendingPiece = null;
+      }
+    });
+
+    adultCancel.addEventListener('click', () => {
+      adultGate.style.display = 'none';
+      pendingPiece = null;
+    });
+
+    function activateAndLoad(piece, link) {
+      document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      loadExtra(piece);
+    }
+
+    async function loadExtra(piece) {
+      chapterContent.innerHTML = `
+        <div class="chapter-body-placeholder">
+          <p class="reader-loading-dots loading-dots">Loading</p>
+        </div>`;
+
+      try {
+        const res = await fetch('chapters/extras/' + piece.file);
+        if (!res.ok) throw new Error('Not found');
+        const arrayBuffer = await res.arrayBuffer();
+        const result = await mammoth.convertToHtml({ arrayBuffer });
+
+        const temp = document.createElement('div');
+        temp.innerHTML = result.value;
+
+        // Add divider after third content element
+        let contentCount = 0;
+        for (const el of Array.from(temp.children)) {
+          const text = el.textContent.trim();
+          if (text === '' || text === '\u00a0') continue;
+          contentCount++;
+          if (contentCount === 3) {
+            const hr = document.createElement('hr');
+            hr.className = 'chapter-divider';
+            el.after(hr);
+            break;
+          }
+        }
+
+        const placeholder = chapterContent.querySelector('.chapter-body-placeholder');
+        if (placeholder) {
+          const body = document.createElement('div');
+          body.className = 'chapter-body fade-in';
+          body.innerHTML = temp.innerHTML;
+          placeholder.replaceWith(body);
+        }
+        // Add font size controls
+        if (typeof initFontSizeControls === 'function') {
+          initFontSizeControls(chapterContent);
+        }
+      } catch (err) {
+        const placeholder = chapterContent.querySelector('.chapter-body-placeholder');
+        if (placeholder) placeholder.innerHTML = '<p>Failed to load content.</p>';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  })();
+  </script>
+</body>
+</html>
